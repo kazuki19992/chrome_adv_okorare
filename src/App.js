@@ -2,29 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  // const [block, updateBlock] = useState('')
-  let block = ''
+  let block = null
 
-  const urlParamStr = window.location.search.substring(1)
-  console.log(urlParamStr)
+  const url = new URL(window.location.href)
+  const params = new URLSearchParams(url.search)
+  console.log(params.get('block'))
+  block = params.get('block')
 
-  if(urlParamStr.length){
-    let params = {}
-
-    // クエリパラメータを取得する
-    urlParamStr.split('&').forEach( param => {
-      const tmp = param.split('=')
-      params = {
-        ...params,
-        [tmp[0]]: tmp[1]
-      }
-    })
-    console.log(params.block)
-
-    block = params.block
-  }
-
-  if(block === ''){
+  if(block === null){
     return (
       <div className="App">
         <header className="App-header">
