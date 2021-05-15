@@ -1,4 +1,4 @@
-import logo from '../logo.svg';
+import logo from '../chrome_chang.png';
 import '../App.css';
 import React from 'react'
 // import { useParams } from 'react-router-dom'
